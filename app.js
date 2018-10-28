@@ -53,33 +53,55 @@ app.get("/", function (req, res) {
    app.get("/contact", function (req, res) {
     res.render("contact.ejs")
    })
+
+app.get("/test", function (req, res) {
+    res.render("test.ejs");
+
+})
    // 5 http POST /contact
-    app.post("/contact", function (req, res) {
-    const name = req.body.inputname;
-    const email = req.body.inputemail;
-    const company = req.body.inputcompany;
-    const comment = req.body.inputcomment;
-    const isError = true;
+app.post("/contact", function (req, res) {
+    const api_key = '629e220dd04f35c254cd2847adef26f8-4836d8f5-be91c535';
+    const domain = 'sandbox878a2d7eaa814e808783fc36d8e70eb6.mailgun.org';
+    const mailgun = require('mailgun-js')({ apiKey: api_key, domain: domain });
    
     // setup e-mail data with unicode symbols
     const mailOptions = {
-      from: '"Denise Case" <denisecase@gmail.com>', // sender address
-      to: 'dcase@nwmissouri.edu, denisecase@gmail.com', // list of receivers
-      subject: 'Message from Website Contact page', // Subject line
-      text: comment,
-      err: isError
+        from: 'Contact-form-validate <postmaster@sandbox878a2d7eaa814e808783fc36d8e70eb6.mailgun.org>', // sender address
+        to: 'sambireddy <chsr222@gmail.com>', // list of receivers
+        subject: req.body.name +" question: " +req.body.question, // Subject line
+        text: req.body.Message,
+        
     }
+
+    mailgun.messages().send(mailOptions, function (error, body) {
+        console.log(body);
+        if (!error) {
+            res.send({
+                show: true,
+                message: "Mail sent",
+                messagebody: "success"
+            })
+        } else {
+            res.send({
+                error,
+                show: true,
+                message: "Mail Not sent",
+                messagebody: "Failure! Please try again"
+            })
+        }
+    })
    
     // logs to the terminal window (not the browser)
-    console.log('\nCONTACT FORM DATA: ' + name + ' ' + email + ' ' + comment + '\n');
+   // console.log('\nCONTACT FORM DATA: ' + name + ' ' + email + ' ' + comment + '\n');
     //})
     // 6 this will execute for all unknown URIs not specifically handled
-app.get(function (req, res) {
-    res.render("404")
-   })
-   
-   // Listen for an application request on designated port
-   app.listen(port, function () {
-    console.log('Web app started and listening on http://localhost:' + port);
-   })
+    app.use(function (request, response) {
+        response.status(404).render("404")
+    })
+
+    // Listen for an application request on port 8081 & notify the developer
+    http.listen(process.env.PORT || 8081, function () {
+        console.log('Web app started and listening onhttp://127.0.0.1:8081/');
+    })   // Listen for an application request on designated port
+  
 });

@@ -1,9 +1,18 @@
 //let fibonacci = documment.getElementById("fib");
 
 function fibonacci(num) {
-  if (num <= 1) return 1;
+    var a = 1, finalValue = 0, temp;
+    if (num < 0) {
+        throw Error ("you must choose between >=0");
+    }
+    while (num >= 0) {
+        temp = a;
+        a = a + finalValue;
+        finalValue = temp;
+        num--;
+    }
 
-  return "You have selected Fibonacci function. The result for given number "+num+" is: "+fibonacci(num - 1) + fibonacci(num - 2);
+    return finalValue;
 }
 
 function factorial(num){
@@ -18,7 +27,7 @@ function factorial(num){
   //   return "You have selected Factorial function.\n The result for given number "+num+" is: "+x
   // }
   // else{
-  //   return (num * factorial(num - 1));
+  //   return (num * factorial  (num - 1));
   // } 
   
 }
@@ -67,7 +76,7 @@ function calculator(){
   }
 }
 
-$('.menu').click(function(){
-  $('.navMobileList').slideToggle();
+$('.menu').click(function () {
+    $('.navMobileList').slideToggle();
 })
 

@@ -10,9 +10,9 @@ h2 {
     text-decoration: none;
 }
 .section-header {
-		color: #5b275e;
-		text-align: justify;
-		font-size: 20px;		
+    font-family: "Times New Roman", Times, serif;
+    color: #5b275e;
+    font-style: italic;
 }
 #past-section {
 			font-family: "Times New Roman", Times, serif;
@@ -24,8 +24,10 @@ h2 {
 		font-style: italic;
 	}
 p {
+
 	color: darkblue;
 	font-size:20px;
+    font-style:italic;
 }
 .aside-header{
 	font-family: "Comic Sans MS";

@@ -1,0 +1,21 @@
+<% include header %>
+
+<body>
+  <!-- the qunit div displays testing results -->
+  <div id="qunit"></div>
+  <!-- the qunit-fixture div is for tests affecting the DOM -->
+  <div id="qunit-fixture">
+    <button id="btnLaunch" class="btn btn-lg btn-danger">Click me</button> <br /> <br />
+    <button class="btn btn-lg btn-primary" id="btnExploreHtml">Explore the HTML</button>
+    <button class="btn btn-lg btn-primary" id="btnExploreCode">Explore the Code</button>
+
+  </div>
+  <br />
+<script src="https://code.jquery.com/qunit/qunit-2.6.2.js"
+integrity="sha256-72OhbBvECs6Z5vG0GfPqiyYvTf8vhdEVHKQcacIcIeM=" crossorigin="anonymous"></script>
+  <script src="conv.js"></script>
+  <script src="test.js"></script>
+
+</body>
+
+</html>

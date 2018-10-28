@@ -1,26 +1,29 @@
-
 <% include header %>
 
-<<p>Which one you want to calculate : </p>
+<p>Which one you want to calculate : </p>
 <form id="valueForCal">
-    <input type="radio" id="valueFact" name="calculation" value="factorial" >Factorial<br>
-    <input type="radio" id="valueFibbo" name="calculation" value="Fibanoci" > Fibanoci<br>
-    <input type="radio" id="valuePal" name="calculation" value="palin" > Palindrome<br>
+  <input type="radio" id="valueFact" name="calculation" value="factorial" />
+    Factorial<br></br>
+      <input type="radio" id="valueFibbo" name="calculation" value="Fibanoci" />
+        Fibanoci<br></br>
+          <input type="radio" id="valuePal" name="calculation" value="palin" />
+            Palindrome<br></br>
 </form>
- <div class="form-group">  
-     
-    <center> Enter the Value: </center><input type="number" name="number" id="num" class="form-control" value="" /> 
-  </div>
-  <div class="form-group">  
-  
-        <button type="button" id="findVal" onclick="calculator()">Find</button>&nbsp;&nbsp;&nbsp;
-    
-  </div>  
-  <p id="result"></p>
-  <script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script> 
+<div class="form-group">
+
+  <center> Enter the Value: </center>
+  <input type="number" name="number" id="num" class="form-control" value="" />
+</div>
+<div class="form-group">
+
+  <button type="button" id="findVal" onclick="calculator()">Find</button>&nbsp;&nbsp;&nbsp;
+
+</div>
+<p id="result"></p>
+<script
+src="https://code.jquery.com/jquery-3.3.1.js"
+integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+crossorigin="anonymous"></script>
 <script src="conv.js" type="text/javascript"></script>
 </body>
 </div>

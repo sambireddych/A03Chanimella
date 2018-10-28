@@ -54,10 +54,6 @@ app.get("/", function (req, res) {
     res.render("contact.ejs")
    })
 
-app.get("/test", function (req, res) {
-    res.render("test.ejs");
-
-})
    // 5 http POST /contact
 app.post("/contact", function (req, res) {
     const api_key = '629e220dd04f35c254cd2847adef26f8-4836d8f5-be91c535';

@@ -15,7 +15,9 @@ const http = require('http').Server(app)  // inject app into the server
 // 6 respond with 404 if a bad URI is requested
 
 // Listen for an application request on port 8081
-
+http.listen(8081, function () {
+  console.log('app listening on http://127.0.0.1:8081/')
+})
 
 // 1 set up the view engine
 app.set("views", path.resolve(__dirname, "views")) // path to views
